@@ -1,83 +1,58 @@
 #include<stdio.h>
-
-#include<stdlib.h>
- 
-#define Size 6
- 
-int Top=-1, inp_array[Size];
-void Push();
-void Pop();
-void show();
- 
+#define maxsize 100
+int stack[maxsize],top=-1,element,i,d;
+void push( int element)
+{
+if(top==maxsize-1)
+printf("Stack overflow");
+else 
+stack[++top]=element;
+}
+void pop()
+{
+if(top=-1)
+printf("Stack empty");
+else
+d=stack[top--];
+}
+void display()
+{
+for(i=0;i<=top;i++)
+printf("%d \n",stack[i]);
+}
 int main()
 {
-	int choice;
-	
-	while(1)	
-	{
-		printf("\nOperations performed by Stack");
-		printf("\n1.Push the element\n2.Pop the element\n3.Show\n4.End");
-		printf("\n\nEnter the choice:");
-		scanf("%d",&choice);
-		
-		switch(choice)
-		{
-			case 1: Push();
-					break;
-			case 2: Pop();
-					break;
-			case 3: show();
-					break;
-			case 4: exit(0);
-			
-			default: printf("\nInvalid choice!!");
-		}
-	}
-}
- 
-void Push()
+int i,ch;
+do
 {
-	int x;
-	
-	if(Top==Size-1)
-	{
-		printf("\nOverflow!!");
-	}
-	else
-	{
-		printf("\nEnter element to be inserted to the stack:");
-		scanf("%d",&x);
-		Top=Top+1;
-		inp_array[Top]=x;
-	}
-}
- 
-void Pop()
+printf("Choose an option");
+printf("\n 1.Push");
+printf("\n 2.Pop");
+printf("\n 3.Display");
+printf("\n 4.Exit");
+printf("\nEnter the choice");
+scanf("\n %d",&ch);
+switch(ch)
 {
-	if(Top==-1)
-	{
-		printf("\nUnderflow!!");
-	}
-	else
-	{
-		printf("\nPopped element:  %d",inp_array[Top]);
-		Top=Top-1;
-	}
-}
- 
-void show()
+case 1:
 {
-	
-	
-	if(Top==-1)
-	{
-		printf("\nUnderflow!!");
-	}
-	else
-	{
-		printf("\nElements present in the stack: \n");
-		for(int i=Top;i>=0;--i)
-			printf("%d\n",inp_array[i]);
-	}
+printf("\nEnter the element to push");
+scanf("\n %d",&element);
+push(element);
+break;
+}
+case 2:
+{
+pop();
+printf("\nElement poped is:%d",d);
+break;
+}
+case 3:
+{
+display();
+break;
 }
 
+}
+} while(ch<4);
+}
