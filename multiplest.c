@@ -57,9 +57,14 @@ void display(int stackNo)
             return;
         }
         printf("\nElements of stack 1\n");
-        for(int i=0;i<=top1;i++)
+        
+        int i=0;
+		for( i;i<=top1;i++)
+	  {
+	
             printf("%d ",stack[i]);
-    }
+       }
+	}
     else if(stackNo==2)
     {
         if (top2==MAX_SIZE)
@@ -68,7 +73,8 @@ void display(int stackNo)
             return;
         }
         printf("\nElements of stack 2\n");
-        for(int i=MAX_SIZE-1;i>=top2;i--)
+        int i=MAX_SIZE-1;
+        for( i;i>=top2;i--)
             printf("%d ", stack[i]);
     }
 }
